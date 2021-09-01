@@ -26,7 +26,7 @@ for index,item in dataframe.iterrows():
     box_size=5,
     border=2
     )
-    qr.add_data(f"This is to certify that {item['name']} has participated in tech summit petrichor'22")
+    qr.add_data(f"This Certificate is Presented to {item['name']} for participating in Tech Summit, Petrichor'22")
     qr.make()
     qr_img = qr.make_image(fill_color="black", back_color="white")
     draw.text(xy=(790,662),text=f"{item['name']}",fill=(255,255,255),font=font_name)
@@ -36,6 +36,9 @@ for index,item in dataframe.iterrows():
     img.save('all_certificates/{}.jpg'.format(item['email']))
 
 
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login(email_sender,password)
 
 
 for filename in os.listdir(directory):
@@ -45,7 +48,7 @@ for filename in os.listdir(directory):
     msg = MIMEMultipart()
     msg['From'] = email_sender
     msg['To'] =email
-    msg['Subject'] = "Petrichor Certificate Test"
+    msg['Subject'] = "Petrichor Certificate"
 
     body = "Hi this email is sent to test the code for automatically generating and sending petrichor certificates"
 
@@ -57,10 +60,10 @@ for filename in os.listdir(directory):
     encoders.encode_base64(p)
     p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
     msg.attach(p)
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(email_sender,password)
+    
 
     text = msg.as_string()
     server.send_message(msg)
-    server.quit()
+    
+
+server.quit()
