@@ -11,4 +11,4 @@ before executing the code run the following commands
       
       pip install qrcode
       
-On line 13 and 14 of the  code in main.py file the font  type is specified, the location of font is specified for Fedora 34, if using windows or any other OS change it accordingly
+On line 12 and 13 of the  code in main.py file the font  type is specified, the location of font is specified for Fedora 34, if using windows or any other OS change it accordingly
