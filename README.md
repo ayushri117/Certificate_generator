@@ -12,3 +12,7 @@ before executing the code run the following commands
       pip install qrcode
       
 On line 12 and 13 of the  code in main.py file the font  type is specified, the location of font is specified for Fedora 34, if using windows or any other OS change it accordingly
+
+
+
+PS. I have used different certificate template for testing the code, so the position of writing will vary on the demo certificate template attached here.
