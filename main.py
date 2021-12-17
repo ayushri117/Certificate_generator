@@ -18,7 +18,7 @@ directory="./all_certificates"
 
 
 for index,item in dataframe.iterrows():
-    img=Image.open('ntes.jpg')
+    img=Image.open('cer.jpg')
     draw=ImageDraw.Draw(img)
     qr = qrcode.QRCode(
     version=1,
